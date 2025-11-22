@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Apple-Style Light Mode (Clean, Soft, Airy) */
+  --background: 0 0% 98%;
+  /* #FAFAFA */
+  --foreground: 240 10% 3.9%;
+  /* #09090B */
+
+  --card: 0 0% 100%;
+  /* #FFFFFF */
+  --card-foreground: 240 10% 3.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+
+  --primary: 252 59% 48%;
+  /* #5F3DC4 (Vibrant Indigo) */
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 240 4.8% 95.9%;
+  /* #F4F4F5 */
+  --secondary-foreground: 240 5.9% 10%;
+
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 5.9% 90%;
+  /* #E4E4E7 */
+  --input: 240 5.9% 90%;
+  --ring: 252 59% 48%;
+
+  --radius: 0.75rem;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme='dark'] {
+  /* Apple-Style Dark Mode (Deep, Rich, Vibrant Accents) */
+  --background: 240 10% 3.9%;
+  /* #09090B */
+  --foreground: 0 0% 98%;
+  /* #FAFAFA */
+
+  --card: 240 10% 6%;
+  /* #121214 */
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 252 59% 58%;
+  /* Lighter Indigo for Dark Mode */
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 240 3.7% 15.9%;
+  /* #27272A */
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 252 59% 58%;
+
+  /* Glassmorphism Dark */
+  --glass-bg: rgba(20, 20, 25, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  @apply bg-background text-foreground antialiased transition-colors duration-300;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Utility Classes for the New Design System */
+.glass-panel {
+  @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border)] shadow-[var(--glass-shadow)];
+}
+
+.glass-button {
+  @apply bg-primary/90 text-primary-foreground hover:bg-primary transition-all shadow-lg hover:shadow-primary/25 active:scale-95;
+}
+
+.card-hover {
+  @apply hover:translate-y-[-2px] transition-all duration-300 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5;
+}
+
+/* Completely hide native date input format */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  display: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
+
+/* For Firefox */
+input[type="date"] {
+  -moz-appearance: textfield;
+}
