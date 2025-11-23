@@ -239,7 +239,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             {step === "completed" && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
                     <div className="w-full max-w-md">
-                        <RatingSystem />
+                        <RatingSystem productId={params.id} />
                         <button
                             onClick={() => setStep("view")}
                             className="mt-4 w-full text-gray-400 hover:text-white text-sm"
